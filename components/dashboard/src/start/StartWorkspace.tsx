@@ -251,10 +251,10 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
         }
         phase = StartPhase.Stopping;
         statusMessage = <div>
-          <div className="flex space-x-3 items-center text-left rounded-xl m-auto px-4 h-16 w-72 mt-4 bg-gray-100">
+          <div className="flex space-x-3 items-center text-left rounded-xl m-auto px-4 h-16 w-72 mt-4 bg-gray-100 dark:bg-gray-800">
             <div className="rounded-full w-3 h-3 text-sm bg-gitpod-kumquat">&nbsp;</div>
             <div>
-              <p className="text-gray-700 font-semibold">{this.state.workspaceInstance.workspaceId}</p>
+              <p className="text-gray-700 dark:text-gray-200 font-semibold">{this.state.workspaceInstance.workspaceId}</p>
               <a target="_parent" href={this.state.workspace?.contextURL}><p className="w-56 truncate hover:text-blue-600" >{this.state.workspace?.contextURL}</p></a>
             </div>
           </div>
@@ -274,10 +274,10 @@ export default class StartWorkspace extends React.Component<StartWorkspaceProps,
           title = 'Timed Out';
         }
         statusMessage = <div>
-          <div className="flex space-x-3 items-center text-left rounded-xl m-auto px-4 h-16 w-72 mt-4 bg-gray-100">
+          <div className="flex space-x-3 items-center text-left rounded-xl m-auto px-4 h-16 w-72 mt-4 bg-gray-100 dark:bg-gray-800">
             <div className="rounded-full w-3 h-3 text-sm bg-gray-300">&nbsp;</div>
             <div>
-              <p className="text-gray-700 font-semibold">{this.state.workspaceInstance.workspaceId}</p>
+              <p className="text-gray-700 dark:text-gray-200 font-semibold">{this.state.workspaceInstance.workspaceId}</p>
               <a target="_parent" href={this.state.workspace?.contextURL}><p className="w-56 truncate hover:text-blue-600" >{this.state.workspace?.contextURL}</p></a>
             </div>
           </div>

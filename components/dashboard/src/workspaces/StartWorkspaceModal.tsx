@@ -24,7 +24,7 @@ interface StartWorkspaceModalProps {
 type Mode = 'Recent' | 'Examples';
 
 function Tab(p: { name: Mode, selection: Mode, setSelection: (selection: Mode) => any }) {
-    const selectedTab = 'border-gray-800 text-gray-800';
+    const selectedTab = 'border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200';
     const inactiveTab = 'border-none text-gray-400';
     return <div onClick={() => p.setSelection(p.name)} className={"cursor-pointer py-2 px-4 border-b-4 " + (p.selection === p.name ? selectedTab : inactiveTab)}>{p.name}</div>
 }
@@ -35,9 +35,9 @@ export function StartWorkspaceModal(p: StartWorkspaceModalProps) {
     useEffect(() => setSelection(computeSelection()), [p.recent, p.selected]);
 
     const list = (selection === 'Recent' ? p.recent : p.examples).map(e =>
-        <a key={e.title} href={e.startUrl} className="rounded-xl group hover:bg-gray-100 flex p-4 my-1">
+        <a key={e.title} href={e.startUrl} className="rounded-xl group hover:bg-gray-100 dark:hover:bg-gray-800 flex p-4 my-1">
             <div className="w-full">
-                <p className="text-base text-gray-800 font-semibold">{e.title}</p>
+                <p className="text-base text-gray-800 dark:text-gray-200 font-semibold">{e.title}</p>
                 <p>{e.description}</p>
             </div>
         </a>);

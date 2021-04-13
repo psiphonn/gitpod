@@ -47,7 +47,7 @@ export default function Preferences() {
                 </SelectableCard>
                 <SelectableCard className="w-36 h-40" title="Theia" selected={defaultIde === 'theia'} onClick={() => actuallySetDefaultIde('theia')}>
                     <div className="flex-grow flex justify-center align-center">
-                        <img className="w-16" src={theia}/>
+                        <img className="w-16 dark:filter-invert" src={theia}/>
                     </div>
                 </SelectableCard>
             </div>

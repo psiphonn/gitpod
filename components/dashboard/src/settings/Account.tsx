@@ -29,7 +29,7 @@ export default function Account() {
     return <div>
         <Modal visible={modal} onClose={close}>
             <h3 className="pb-2">Delete Account</h3>
-            <div className="border-t border-b border-gray-200 mt-2 -mx-6 px-6 py-4">
+            <div className="border-t border-b border-gray-200 dark:border-gray-700 mt-2 -mx-6 px-6 py-4">
                 <p className="pb-4 text-gray-900 text-base">You are about to permanently delete your account.</p>
                 <ol className="text-gray-500 text-sm list-outside list-decimal">
                     <li className="ml-5">All your workspaces and related data will be deleted and cannot be restored afterwards.</li>

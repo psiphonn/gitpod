@@ -78,7 +78,7 @@ export default function UserSearch() {
             </div>
         </div>
         <div className="flex flex-col space-y-2">
-            <div className="px-6 py-3 flex justify-between space-x-2 text-sm text-gray-400 border-t border-b border-gray-200 mb-2">
+            <div className="px-6 py-3 flex justify-between space-x-2 text-sm text-gray-400 border-t border-b border-gray-200 dark:border-gray-700 mb-2">
                 <div className="w-1/12"></div>
                 <div className="w-6/12">Name</div>
                 <div className="w-5/12">Created</div>
@@ -99,12 +99,12 @@ function UserEntry(p: { user: User }) {
         log.error(e);
     }
     return <Link key={p.user.id} to={'/admin/users/' + p.user.id}>
-        <div className="rounded-xl whitespace-nowrap flex space-x-2 py-6 px-6 w-full justify-between hover:bg-gray-100 focus:bg-gitpod-kumquat-light group">
+        <div className="rounded-xl whitespace-nowrap flex space-x-2 py-6 px-6 w-full justify-between hover:bg-gray-100 dark:hover:bg-gray-800 focus:bg-gitpod-kumquat-light group">
             <div className="pr-3 self-center w-1/12">
                 <img className="rounded-full" src={p.user.avatarUrl} alt={p.user.fullName || p.user.name}/>
             </div>
             <div className="flex flex-col w-6/12">
-                <div className="font-medium text-gray-800 truncate hover:text-blue-600">{p.user.fullName}</div>
+                <div className="font-medium text-gray-800 dark:text-gray-100 truncate hover:text-blue-600">{p.user.fullName}</div>
                 <div className="text-sm overflow-ellipsis truncate text-gray-400 hover:text-blue-600">{email}</div>
             </div>
             <div className="flex w-5/12 self-center">

@@ -34,20 +34,22 @@
     }
 
     .btn-login {
-        @apply rounded-md border-none bg-gray-100 hover:bg-gray-200 text-gray-500;
+        @apply rounded-md border-none bg-gray-100 hover:bg-gray-200 text-gray-500 dark:text-gray-400;
     }
-
+    .dark .dark\:filter-invert {
+        @apply filter-invert;
+    }
 }
 
 @layer components {
     button {
-        @apply cursor-pointer px-4 py-2 my-auto bg-green-600 hover:bg-green-700 text-gray-100 text-sm font-medium rounded-md focus:outline-none focus:ring transition ease-in-out;
+        @apply cursor-pointer px-4 py-2 my-auto bg-green-600 hover:bg-green-700 dark:bg-opacity-40 text-gray-100 dark:text-green-400 text-sm font-medium border-2 border-transparent dark:border-green-400 rounded-md focus:outline-none focus:ring transition ease-in-out;
     }
     button.secondary {
-        @apply bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-600;
+        @apply bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-600 dark:border-gray-50;
     }
     button.danger {
-        @apply bg-red-600 hover:bg-red-700 text-gray-100;
+        @apply bg-red-600 hover:bg-red-700 text-gray-100 dark:text-red-400 dark:border-red-400;
     }
     button.danger.secondary {
         @apply bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700;
@@ -57,17 +59,14 @@
     }
 
     input[type=text], input[type=password], select {
-        @apply block w-56 text-gray-600 rounded-md border border-gray-300 focus:border-gray-400 focus:bg-white focus:ring-0;
+        @apply block w-56 text-gray-600 bg-transparent rounded-md border border-gray-300 focus:border-gray-400 focus:ring-0;
     }
-
     input[type=text]::placeholder, input[type=password]::placeholder {
         @apply text-gray-400;
     }
-
     input[disabled] {
         @apply bg-gray-100 border border-gray-200 text-gray-400;
     }
-
     input[type=radio] {
         @apply rounded-md border border-gray-300 focus:border-gray-400 focus:bg-white focus:ring-0;
     }

@@ -161,7 +161,7 @@ export default function EnvVars() {
             : null}
         </div>
         {envVars.length === 0
-            ? <div className="bg-gray-100 rounded-xl w-full h-96">
+            ? <div className="bg-gray-100 dark:bg-gray-900 rounded-xl w-full h-96">
                 <div className="pt-28 flex flex-col items-center w-96 m-auto">
                     <h3 className="text-center pb-3 text-gray-500">No Environment Variables</h3>
                     <div className="text-center pb-6 text-gray-500">In addition to user-specific environment variables you can also pass variables through a workspace creation URL. <a className="text-gray-400 underline underline-thickness-thin underline-offset-small hover:text-gray-600" href="https://www.gitpod.io/docs/environment-variables/#using-the-account-settings">Learn more</a></div>
@@ -170,7 +170,7 @@ export default function EnvVars() {
             </div>
             : <div className="space-y-2">
                 <div className="flex flex-col space-y-2">
-                    <div className="px-3 py-3 flex justify-between space-x-2 text-sm text-gray-400 border-t border-b border-gray-200">
+                    <div className="px-3 py-3 flex justify-between space-x-2 text-sm text-gray-400 border-t border-b border-gray-200 dark:border-gray-700">
                         <div className="w-5/12">Name</div>
                         <div className="w-5/12">Scope</div>
                         <div className="w-2/12"></div>
@@ -178,11 +178,11 @@ export default function EnvVars() {
                 </div>
                 <div className="flex flex-col">
                     {envVars.map(ev => {
-                        return <div className="rounded-xl whitespace-nowrap flex space-x-2 py-3 px-3 w-full justify-between hover:bg-gray-100 focus:bg-gitpod-kumquat-light transition ease-in-out group">
+                        return <div className="rounded-xl whitespace-nowrap flex space-x-2 py-3 px-3 w-full justify-between hover:bg-gray-100 dark:hover:bg-gray-800 focus:bg-gitpod-kumquat-light transition ease-in-out group">
                             <div className="w-5/12 m-auto">{ev.name}</div>
                             <div className="w-5/12 m-auto text-sm text-gray-400">{ev.repositoryPattern}</div>
                             <div className="w-2/12 flex justify-end">
-                                <div className="flex w-8 self-center hover:bg-gray-200 rounded-md cursor-pointer opacity-0 group-hover:opacity-100">
+                                <div className="flex w-8 self-center hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md cursor-pointer opacity-0 group-hover:opacity-100">
                                     <ContextMenu menuEntries={[
                                         {
                                             title: 'Edit',

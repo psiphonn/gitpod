@@ -95,7 +95,7 @@ export function WorkspaceSearch(props: Props) {
             </div>
         </div>
         <div className="flex flex-col space-y-2">
-            <div className="px-6 py-3 flex justify-between text-sm text-gray-400 border-t border-b border-gray-200 mb-2">
+            <div className="px-6 py-3 flex justify-between text-sm text-gray-400 border-t border-b border-gray-200 dark:border-gray-700 mb-2">
                 <div className="w-8"></div>
                 <div className="w-5/12">Name</div>
                 <div className="w-5/12">Context</div>
@@ -108,12 +108,12 @@ export function WorkspaceSearch(props: Props) {
 
 function WorkspaceEntry(p: { ws: WorkspaceAndInstance }) {
     return <Link key={'ws-' + p.ws.workspaceId} to={'/admin/workspaces/' + p.ws.workspaceId}>
-        <div className="rounded-xl whitespace-nowrap flex py-6 px-6 w-full justify-between hover:bg-gray-100 focus:bg-gitpod-kumquat-light group">
+        <div className="rounded-xl whitespace-nowrap flex py-6 px-6 w-full justify-between hover:bg-gray-100 dark:hover:bg-gray-800 focus:bg-gitpod-kumquat-light group">
             <div className="pr-3 self-center w-8">
                 <WorkspaceStatusIndicator instance={WorkspaceAndInstance.toInstance(p.ws)}/>
             </div>
             <div className="flex flex-col w-5/12 truncate">
-                <div className="font-medium text-gray-800 truncate hover:text-blue-600 truncate">{p.ws.workspaceId}</div>
+                <div className="font-medium text-gray-800 dark:text-gray-100 truncate hover:text-blue-600 truncate">{p.ws.workspaceId}</div>
                 <div className="text-sm overflow-ellipsis truncate text-gray-400 truncate">{getProject(WorkspaceAndInstance.toWorkspace(p.ws))}</div>
             </div>
             <div className="flex flex-col w-5/12 self-center truncate">

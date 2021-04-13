@@ -211,10 +211,9 @@ function GitProviders() {
         {diconnectModal && (
             <Modal visible={true} onClose={() => setDisconnectModal(undefined)}>
                 <h3 className="pb-2">Disconnect Provider</h3>
-                <div className="border-t border-b border-gray-200 mt-2 -mx-6 px-6 py-4">
+                <div className="border-t border-b border-gray-200 dark:border-gray-700 mt-2 -mx-6 px-6 py-4">
                     <p className="pb-4 text-gray-500 text-base">Are you sure you want to disconnect the following provider?</p>
-
-                    <div className="flex flex-col rounded-xl p-3 bg-gray-100">
+                    <div className="flex flex-col rounded-xl p-3 bg-gray-100 dark:bg-gray-800">
                         <div className="text-gray-700 text-md font-semibold">{diconnectModal.provider.authProviderType}</div>
                         <div className="text-gray-400 text-md">{diconnectModal.provider.host}</div>
                     </div>
@@ -228,7 +227,7 @@ function GitProviders() {
         {editModal && (
             <Modal visible={true} onClose={() => setEditModal(undefined)}>
                 <h3 className="pb-2">Edit Permissions</h3>
-                <div className="border-t border-b border-gray-200 mt-2 -mx-6 px-6 py-4">
+                <div className="border-t border-b border-gray-200 dark:border-gray-700 mt-2 -mx-6 px-6 py-4">
                     <div className="text-gray-500">
                         Configure provider permissions.
                     </div>
@@ -260,7 +259,7 @@ function GitProviders() {
     <h2>Manage permissions for git providers.</h2>
         <div className="flex flex-col pt-6 space-y-2">
             {authProviders && authProviders.map(ap => (
-                <div key={"ap-" + ap.authProviderId} className="flex-grow flex flex-row hover:bg-gray-100 rounded-xl h-16 w-full transition ease-in-out group">
+                <div key={"ap-" + ap.authProviderId} className="flex-grow flex flex-row hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl h-16 w-full transition ease-in-out group">
                     <div className="px-4 self-center w-1/12">
                         <div className={"rounded-full w-3 h-3 text-sm align-middle " + (isConnected(ap.authProviderId) ? "bg-green-500" : "bg-gray-400")}>
                             &nbsp;
@@ -279,7 +278,7 @@ function GitProviders() {
                         <span className="text-sm my-auto text-gray-400">Permissions</span>
                     </div>
                     <div className="my-auto flex w-1/12 pl-8 mr-4 opacity-0 group-hover:opacity-100">
-                        <div className="self-center hover:bg-gray-200 rounded-md cursor-pointer w-8">
+                        <div className="self-center hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md cursor-pointer w-8">
                             <ContextMenu menuEntries={gitProviderMenu(ap)}>
                                 <img className="w-8 h-8 p-1" src={ThreeDots} alt="Actions" />
                             </ContextMenu>
@@ -343,7 +342,7 @@ function GitIntegrations() {
         {modal?.mode === "delete" && (
             <Modal visible={true} onClose={() => setModal(undefined)}>
                 <h3 className="pb-2">Remove Integration</h3>
-                <div className="border-t border-b border-gray-200 mt-2 -mx-6 px-6 py-4">
+                <div className="border-t border-b border-gray-200 dark:border-gray-700 mt-2 -mx-6 px-6 py-4">
                     <p className="pb-4 text-gray-500 text-base">Are you sure you want to remove the following git integration?</p>
 
                     <div className="flex flex-col rounded-xl p-3 bg-gray-100">
@@ -371,7 +370,7 @@ function GitIntegrations() {
         </div>
 
         {providers && providers.length === 0 && (
-            <div className="w-full flex h-80 mt-2 rounded-xl bg-gray-100">
+            <div className="w-full flex h-80 mt-2 rounded-xl bg-gray-100 dark:bg-gray-900">
                 <div className="m-auto text-center">
                     <h3 className="self-center text-gray-500 mb-4">No Git Integrations</h3>
                     <div className="text-gray-500 mb-6">In addition to the default Git Providers you can authorize<br /> with a self hosted instace of a provider.</div>
@@ -381,7 +380,7 @@ function GitIntegrations() {
         )}
         <div className="flex flex-col pt-6 space-y-2">
             {providers && providers.map(ap => (
-                <div key={"ap-" + ap.id} className="flex-grow flex flex-row hover:bg-gray-100 rounded-xl h-16 w-full transition ease-in-out group">
+                <div key={"ap-" + ap.id} className="flex-grow flex flex-row hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl h-16 w-full transition ease-in-out group">
 
                     <div className="px-4 self-center w-1/12">
                         <div className={"rounded-full w-3 h-3 text-sm align-middle " + (ap.status === "verified" ? "bg-green-500" : "bg-gray-400")}>
@@ -395,7 +394,7 @@ function GitIntegrations() {
                         <span className="my-auto truncate text-gray-500 overflow-ellipsis">{ap.host}</span>
                     </div>
                     <div className="my-auto flex w-1/12 pl-8 opacity-0 group-hover:opacity-100">
-                        <div className="self-center hover:bg-gray-200 rounded-md cursor-pointer w-8">
+                        <div className="self-center hover:bg-gray-200 dark:dark:bg-gray-800 rounded-md cursor-pointer w-8">
                             <ContextMenu menuEntries={gitProviderMenu(ap)}>
                                 <img className="w-8 h-8 p-1" src={ThreeDots} alt="Actions" />
                             </ContextMenu>
@@ -561,7 +560,7 @@ function GitIntegrationModal(props: ({
 
     return (<Modal visible={!!props} onClose={close}>
         <h3 className="pb-2">{props.mode === "new" ? "New Git Integration" : "Git Integration"}</h3>
-        <div className="space-y-4 border-t border-b border-gray-200 mt-2 -mx-6 px-6 py-4">
+        <div className="space-y-4 border-t border-b border-gray-200 dark:border-gray-700 mt-2 -mx-6 px-6 py-4">
             {props.mode === "edit" && props.provider.status === "pending" && (
                 <div className="flex rounded-md bg-gitpod-kumquat-light p-3">
                     <img className="w-4 h-4 mx-2 my-auto" src={exclamation} />
