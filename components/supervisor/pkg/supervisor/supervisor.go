@@ -39,6 +39,7 @@ import (
 	daemon "github.com/gitpod-io/gitpod/ws-daemon/api"
 
 	grpc_logrus "github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus"
+	chisel "github.com/jpillora/chisel/server"
 )
 
 var (
@@ -612,6 +613,19 @@ func startAPIEndpoint(ctx context.Context, cfg *Config, wg *sync.WaitGroup, serv
 		routes.Handle("/_supervisor"+pprof.Path, http.StripPrefix("/_supervisor", pprof.Handler()))
 	}
 	go http.Serve(httpMux, routes)
+
+	chiselMux := m.Match(cmux.HTTP1HeaderFieldPrefix("Sec-WebSocket-Protocol", "chisel-"))
+	chs, err := chisel.NewServer(&chisel.Config{
+		Listener: chiselMux,
+		Reverse:  true,
+	})
+	if err != nil {
+		log.WithError(err).Fatal("cannot start chisel server")
+	}
+	err = chs.Start("", strconv.Itoa(cfg.APIEndpointPort))
+	if err != nil {
+		log.WithError(err).Fatal("cannot start chisel server")
+	}
 
 	go m.Serve()
 
